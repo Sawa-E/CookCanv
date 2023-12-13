@@ -6,6 +6,7 @@ document.getElementById('searchBar').addEventListener('input', function (e) {
     { name: '豚骨ラーメン', url: 'tonnkotu.html' },
     { name: '味噌ラーメン', url: 'miso.html' },
     { name: '醤油ラーメン', url: 'syoyu.html' },
+    { name: '塩ラーメン', url: 'sio.html' },
     { name: '寿司', url: 'sushi.html' },
     // 他の料理をここに追加
   ];
