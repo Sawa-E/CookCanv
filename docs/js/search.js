@@ -1,37 +1,41 @@
-document.getElementById('searchBar').addEventListener('input', function (e) {
-  var searchQuery = e.target.value.toLowerCase();
+window.onload = function () {
+  document.getElementById('search-results').style.display = 'none';
+};
 
-  var dishes = [
-    { name: 'ラーメン', url: 'ramen.html' },
-    { name: '豚骨ラーメン', url: 'tonnkotu.html' },
-    { name: '味噌ラーメン', url: 'miso.html' },
-    { name: '醤油ラーメン', url: 'syoyu.html' },
-    { name: '塩ラーメン', url: 'sio.html' },
-    { name: '寿司', url: 'sushi.html' },
-    // 他の料理をここに追加
-  ];
+document.getElementById('search-input').addEventListener('input', function (event) {
+  var searchText = event.target.value;
+  var searchResults = document.getElementById('search-results');
 
-  if (searchQuery === '') {
-    displayResults([]);
+  if (searchText.length === 0) {
+    // 入力が空の場合、検索結果を非表示にする
+    searchResults.style.display = 'none';
     return;
+  } else {
+    // 入力がある場合、検索結果を表示する
+    searchResults.style.display = 'block';
   }
 
-  var filteredDishes = dishes.filter(function (dish) {
-    return dish.name.toLowerCase().includes(searchQuery);
+  searchResults.innerHTML = ''; // 結果をクリア
+
+  // サンプルデータ
+  var recipes = [
+    { name: '醤油ラーメン', url: 'syoyu.html' },
+    { name: '味噌ラーメン', url: 'miso.html' },
+    { name: '塩ラーメン', url: 'salt.html' },
+    // 他のレシピ...
+  ];
+
+  // 部分一致検索
+  var filteredRecipes = recipes.filter(function (recipe) {
+    return recipe.name.includes(searchText);
   });
 
-  displayResults(filteredDishes);
+  // 検索結果を表示
+  filteredRecipes.forEach(function (recipe) {
+    var link = document.createElement('a');
+    link.href = recipe.url;
+    link.textContent = recipe.name;
+    link.style.display = 'block'; // リンクをブロック要素として表示
+    searchResults.appendChild(link);
+  });
 });
-
-function displayResults(dishes) {
-  var searchResults = document.getElementById('searchResults');
-  searchResults.innerHTML = '';
-
-  dishes.forEach(function (dish) {
-    var element = document.createElement('a');
-    element.textContent = dish.name;
-    element.href = dish.url;
-    searchResults.appendChild(element);
-    searchResults.appendChild(document.createElement('br'));
-  });
-}

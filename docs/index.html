@@ -9,53 +9,39 @@
   </head>
   <body>
     <header>
-      <div class="wrap">
-        <div class="wrap_column">
-          <p class="logo_text">あなたのキャンバスに色どりを</p>
-          <div class="logo">
-            <a href="./index.html">
-              <img class="logo" src="./img/logo.png" alt="CookCanvLogo" />
-            </a>
-          </div>
-        </div>
-        <div class="wrap_column">
-          <div class="wrap">
-            <div class="title">Cook Canv</div>
-          </div>
+      <div class="logo-container">
+        <img src="./img/logo.png" alt="CookCanv Logo" class="logo" />
+        <div class="branding">
+          <h1 class="title">CookCanv</h1>
+          <span class="tagline">あなたのキャンバスに色どりを。</span>
         </div>
       </div>
-      <div class="profile">
-        <div class="wrap_right wrap_gap30">
-          <div>
-            <p class="p_text">User</p>
-            <div class="p_frame"></div>
-          </div>
-          <div>
-            <p class="p_text">Sign Up</p>
-            <div class="p_frame"></div>
-          </div>
-          <div>
-            <p class="p_text">Login</p>
-            <div class="p_frame"></div>
-          </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="料理検索..." />
+          <button id="search-button">検索</button>
         </div>
+        <div class="search-results" id="search-results"></div>
       </div>
-      <div class="wrap wrap_gap45">
-        <div class="h_text">Home</div>
-        <div class="h_text">News</div>
-        <div class="h_text">Racipes</div>
-        <div class="h_text">About</div>
-        <div class="h_text">Contact</div>
-        <div class="h_text">FAQ</div>
-        <div class="bar">
-          <input type="text" id="searchBar" placeholder="料理を検索" />
-          <div id="searchResults" class="search-results"></div>
-        </div>
+      <div class="user-buttons">
+        <button id="login-button">ログイン</button>
+        <button id="profile-button">プロフィール</button>
       </div>
-      <hr class="border" />
     </header>
+    <div class="search-results" id="search-results"></div>
     <main></main>
     <footer></footer>
+
     <script type="text/javascript" src="./js/search.js"></script>
   </body>
 </html>
